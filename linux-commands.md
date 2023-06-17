@@ -10,15 +10,22 @@
 <br/>
 
 ### 关机/重启/挂起：shutdown · reboot
-关机：
-&emsp;&emsp;`shutdown -h`  
-&emsp;&emsp;`reboot -p`  
+`shutdown [options...] [TIME] [WALL...]`  
+
+&emsp;&emsp;TIME参数设定的是关机等操作执行的时间，时间设定有三种：
+1. `hh:mm`设置具体的时间  
+2. `+m`设置延后m分钟后执行，默认是`+1`也就是1分钟后执行  
+3. `now`表示立刻执行，是`+0`的别名  
+
+&emsp;&emsp;WALL参数设定的是通过系统广播发送给所有登录用户终端上的通知信息，以告诉用户系统将进行什么操作   
+
+关机：  
+&emsp;&emsp;`shutdown -h now`  
 重启：  
-&emsp;&emsp;`shutdown -r`  
-&emsp;&emsp;`reboot`  
-挂起：
-&emsp;&emsp;`shutdown -halt`  
-&emsp;&emsp;`reboot --halt`
+&emsp;&emsp;`shutdown -r now`  
+&emsp;&emsp;`reboot`（reboot命令会立刻执行，默认没有延时，它也能用来关机和挂起）  
+挂起：  
+&emsp;&emsp;`shutdown -halt now`   
 
 <br/>
 
@@ -170,9 +177,16 @@ cp命令的一些默认规则
 > -f：如果由同名文件存在则覆盖  
 > -i：如果有同名文件存在则询问  
 
-
 <br/>
 
+### 查看目录的树状结构：tree
+`tree`：查看当前目录  
+`tree /dir`：查看指定目录  
+
+常用选项：  
+> -l：显示文件的详细信息  
+> -h：以可读的方式显示文件大小  
+> -o file：把树状结构输出到指定文件而不是stdout  
 
 
 # 文件权限
@@ -662,6 +676,12 @@ echo与输入重定向同时使用，可用来复制文件
 &emsp;&emsp;同上，只不过*file*存在时则追加  
 `echo < [file1] > [file2]`  
 &emsp;&emsp;把echo的输入流改为*file1*，在把输出流定位到*file2*，从而实现把*file1*复制为*file2*  
+
+<br/>
+
+### 增加一个输出流到文件：tee
+&emsp;&emsp;tee从stdin输入数据，然后输出到stdout和指定文件，相当于重定向的同时保留对stdout的输出流  
+`ls | tee files-details.txt`
 
 <br/>
 
