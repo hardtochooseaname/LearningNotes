@@ -487,9 +487,10 @@ locate的查找不需要记住完整文件名，它会查找所有与输入的pa
 &emsp;&emsp;apt会连带包的依赖一起安装  
 &emsp;&emsp;apt的执行需要root权限  
 常用命令：
-- 列出所有可更新的软件清单：`sudo apt update`    
+- 列出所有可更新的软件清单：`sudo apt update`
+- 列出指定软件的更新信息：`sudo apt update package-name`      
 - 列出可更新的软件包及版本信息：`apt list --upgradeable`  
-- 安装指定的软件：`sudo apt install package-name`  
+- 安装指定的软件：`sudo apt upgrade package-name`  
 - 更新指定的软件：`sudo apt update package-name`  
 - 显示软件包具体信息,例如：版本号，安装大小，依赖关系等等：`sudo apt show package-name`  
 - 删除软件包：`sudo apt remove package-name`  
