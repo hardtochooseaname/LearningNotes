@@ -105,10 +105,11 @@ project/
 ```
 下面是CMakeLists.txt文件的内容（前三项是必须的）：
 ```cmake
-# 说明项目构建所需要的cmake版本最低是多少
+# 在每个项目的顶层CMakeLists.txt中必须以该命令开头
+# 说明项目构建所需要的cmake版本最低是多少，便于之后的CMake命令可以正常执行
 cmake_minimum_required(VERSION 3.12)
 
-# 指定项目名称MyProject
+# 指定项目名称MyProject，可以附加项目所用语言、项目版本等信息
 project(MyProject)
 
 # 指明需要编译和链接在一起的源文件，以及最终需要生成的可执行文件myapp
